@@ -8,10 +8,20 @@ The application is built on Laravel with a Vue front-end, with Statamic powering
 
 1. `cp .env.example .env`
 2. Modify any ports, as necessary, inside `.env`
+3. Install deps `docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php83-composer:latest \
+    composer install --ignore-platform-reqs`
 3. `sail up` to build your containers and run the application.
-4. See if everything is working properly by visiting http://localhost:8800 (or whatever you have configured in your `.env` file)
-5. `sail artisan db:seed --class=DatabaseSeeder` to seed the database with a test user (test@char3.com)
-6. Verify everything is working by going to http://localhost:8800/cp and using your test user to log in.
+4. Add sail alias into ~/.zshrc or ~/.bashrc:
+   `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
+5. Setting up an app key `sail artisan key:generate`
+6. See if everything is working properly by visiting http://localhost:8800 (or whatever you have configured in your `.env` file)
+7. `sail artisan migrate`
+8. `sail artisan db:seed --class=DatabaseSeeder` to seed the database with a test user (test@char3.com)
+9. Verify everything is working by going to http://localhost:8800/cp and using your test user to log in.
     User: test@char3.com
     Password: password
 
