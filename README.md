@@ -53,3 +53,9 @@ sail composer pint
 ```bash
 sail composer phpmd
 ```
+
+### PHPStan
+
+```bash
+sail composer phpstan
+```
