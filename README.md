@@ -14,16 +14,16 @@ The application is built on Laravel with a Vue front-end, with Statamic powering
     -w /var/www/html \
     laravelsail/php83-composer:latest \
     composer install --ignore-platform-reqs`
-3. `sail up` to build your containers and run the application.
 4. Add sail alias into ~/.zshrc or ~/.bashrc:
    `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
-5. Setting up an app key `sail artisan key:generate`
-6. See if everything is working properly by visiting http://localhost:8800 (or whatever you have configured in your `.env` file)
-7. `sail artisan migrate`
-8. `sail artisan db:seed --class=DatabaseSeeder` to seed the database with a test user (test@char3.com)
-9. Verify everything is working by going to http://localhost:8800/cp and using your test user to log in.
-    User: test@char3.com
-    Password: password
+5. `sail up` to build your containers and run the application.
+6. Setting up an app key `sail artisan key:generate`
+7. See if everything is working properly by visiting http://localhost:8800 (or whatever you have configured in your `.env` file)
+8. `sail artisan migrate`
+9. `sail artisan db:seed --class=DatabaseSeeder` to seed the database with a test user (test@char3.com)
+10. Verify everything is working by going to http://localhost:8800/cp and using your test user to log in.
+     User: test@char3.com
+     Password: password
 
 ### Note about Sail
 
@@ -38,3 +38,24 @@ Email is caught by Mailpit so you do not need to worry about local development h
 ### Useful Links
 
 Statamic Control Panel: http://localhost:8800/cp/
+
+
+## Comands to run
+
+### CS (Laravel pint)
+
+```bash
+sail composer pint
+```
+
+### MD (Mass detector)
+
+```bash
+sail composer phpmd
+```
+
+### PHPStan
+
+```bash
+sail composer phpstan
+```
